@@ -1,0 +1,21 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+ <h1>Контакты</h1>
+    <article>
+    {% if contact_form %}
+        <p>Добро пожаловать на сайт.</p>
+        <p>Если у Вас есть пожелания или предложения по улучшению сайта, либо Вы желаете предложить статью к публикации на сайте, то Вы можете сделать это, воспользовавшись контактной формой:</p>
+        <form action="" method="post">
+            {% csrf_token %}
+            <table>
+            {{ form }}
+            </table>
+            <input type="submit" value="Submit" />
+        </form>
+    {% else %}
+        <p>Сообщение отправлено</p>
+    {% endif %}
+    </article>
+{% endblock %}
