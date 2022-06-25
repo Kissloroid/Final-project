@@ -7,10 +7,10 @@
     <ul>
       {% for author in author_list %}
       <li>
-        <a href="{{ author.get_absolute_url }}">{{author.last_name}}, {{ author.name }}</a>
-          {{author.date_of_birth}} {{author.date_of_death}}
+        <a href="{{ author.get_absolute_url }}">{{ author.Name }} {{author.last_name}}</a>
+          {{author.date_of_birth}} / {{author.date_of_death}}
         {% if perms.catalog.can_mark_returned %}
-            <a href="{% url 'author_update' author.pk%}">Редактировать</a>
+            <a href="{% url 'author_update' author.pk%}"> Редактировать </a>
             <a href="{% url 'author_delete' author.pk%}">Удалить</a>
 
         {% endif %}
