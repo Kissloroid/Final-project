@@ -1,4 +1,6 @@
 from django import forms
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 from django.utils.translation import ugettext_lazy as _
 import datetime
@@ -35,3 +37,15 @@ class ContactForm(forms.Form):
         label="Сообщение",
         widget=forms.Textarea
     )
+
+
+class UserForm(AuthenticationForm):
+    class Meta:
+        model = User
+
+
+class RegisterForm(UserCreationForm):
+
+    class Meta:
+        model = User
+        fields = ('username', 'email',)

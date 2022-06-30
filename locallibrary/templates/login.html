@@ -1,0 +1,18 @@
+{% extends 'base_generic.html' %}
+    {% block content %}
+        <h1 class="mt-4">Авторизация</h1>
+        <div class="col-4">
+           <form id="add_form" style = "width:230px; height:200px" method="post">
+           {% csrf_token %}
+           {{form}}
+          </form>
+          </div>
+          <button form="add_form" type="submit" class="btn btn-primary mt-4">Войти</button>
+          <p>
+          <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
+          <p><a href="/">На главную</a></p>
+
+
+
+
+    {% endblock %}

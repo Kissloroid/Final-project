@@ -1,0 +1,21 @@
+{% extends 'base_generic.html' %}
+    {% block content %}
+        <style>
+            form label {padding-right: 5px width: 200px;}
+            form input {width: 200px;}
+            .helptext{visibility: hidden;}
+
+        </style>
+          <h1 class="mt-1">Регистрация</h1>
+          <div class="col-2">
+           <form id="add_form" style = "width:250px; height:500px" method="post">
+           {% csrf_token %}
+           {{form}}
+          </form>
+          </div>
+          <p>
+          <button form="add_form" class="btn btn-primary mt-4" type="submit">Зарегистрироваться</button>
+          <p><a href="/">На главную</a></p>
+
+
+    {% endblock %}

@@ -8,11 +8,12 @@ from django.shortcuts import get_object_or_404
 from django.http import HttpResponseRedirect
 import datetime
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.contrib.auth.views import LoginView
 from django.urls import reverse_lazy
 from .models import Author
 from django.shortcuts import render, reverse
 from django.views import View
-from .forms import ContactForm, RenewBookForm
+from .forms import ContactForm, RenewBookForm, RegisterForm, UserForm
 
 
 def index(request):
@@ -38,6 +39,17 @@ def index(request):
         'index.html',
         context={'num_genre': num_genre, 'num_books': num_books, 'num_instances': num_instances, 'num_instances_available': num_instances_available, 'num_authors': num_authors, 'num_visits':num_visits},
     )
+
+
+class UserRegisterView(CreateView):
+    template_name = 'register.html'
+    form_class = RegisterForm
+    success_url = reverse_lazy('index')
+
+
+class UserLoginView (LoginView):
+    template_name = 'login.html'
+    form_class = UserForm
 
 
 class BookListView(generic.ListView):

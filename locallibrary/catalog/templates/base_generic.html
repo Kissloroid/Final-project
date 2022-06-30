@@ -51,6 +51,20 @@
 
           {% else %}
               <li><a href="{% url 'login'%}">Войти</a></li>
+
+            <li class="nav-item">
+       {% url 'login_page' as url_login_page %}
+       <a class="nav-link {% if url_login_page == request.path %}active{% endif %}" aria-current="page"
+       href="{{url_login_page}}">Авторизация</a>
+       </li>
+
+
+              <li class="nav-item">
+       {% url 'register_page' as url_register_page %}
+       <a class="nav-link {% if url_register_page == request.path %}active{% endif %}" aria-current="page"
+       href="{{url_register_page}}">Регистрация</a>
+       </li>
+
           {% endif %}
       </ul>
      {% endblock %}
