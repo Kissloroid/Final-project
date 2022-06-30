@@ -129,7 +129,7 @@ class AuthorCreate(CreateView):
 
 class AuthorUpdate(UpdateView):
     model = Author
-    fields = ['Имя', 'last_name', 'date_of_birth', 'date_of_death']
+    fields = ['Name', 'last_name', 'date_of_birth', 'date_of_death']
 
 
 class AuthorDelete(DeleteView):
@@ -144,7 +144,7 @@ class BookCreate(CreateView):
 
 class BookUpdate(UpdateView):
     model = Book
-    fields = ['title', 'author', 'summary', 'isbn', 'genre']
+    fields = ['title', 'author', 'summary', 'genre']
 
 
 class BookDelete(DeleteView):

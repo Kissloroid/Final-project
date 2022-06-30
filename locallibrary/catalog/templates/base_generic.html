@@ -22,7 +22,7 @@
       <div class="col-sm-2">
       {% block sidebar %}
       <ul class="sidebar-nav">
-          <li><a href="{% url 'index' %}">Home</a></li>
+          <li><a href="{% url 'index' %}">На главную</a></li>
           <li><a href="{% url 'books' %}">Список книг</a></li>
           <li><a href="{% url 'author' %}">Список авторов</a></li>
 
@@ -32,12 +32,13 @@
           <p>
           <p>
           {% if user.is_authenticated %}
-            <li>User: {{ user.get_username }}</li>
+            <li>Пользователь: {{ user.get_username }}</li>
             <li><a href="{% url 'my-borrowed' %}">My Borrowed</a></li>
-            <li><a href="{% url 'logout'%}">Logout</a></li>
+            <li><a href="{% url 'logout'%}">Выйти</a></li>
+
             {% if perms.catalog.can_mark_returned %}
           <hr>
-          Stuff
+          Для администраторов:
                 <!-- We can mark a BookInstance as returned. -->
              <li><a href="{% url 'all-borrowed' %}">All Borrowed</a></li>
              <li><a href="{% url 'author_create' %}">Создать Автора</a></li>
@@ -49,7 +50,7 @@
             {% endif %}
 
           {% else %}
-              <li><a href="{% url 'login'%}">Login</a></li>
+              <li><a href="{% url 'login'%}">Войти</a></li>
           {% endif %}
       </ul>
      {% endblock %}
